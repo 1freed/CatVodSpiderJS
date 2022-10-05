@@ -1,4 +1,28 @@
-var rule = {
+import './dr/drT.js';
+// import 模板 from 'https://gitcode.net/qq_32394351/dr_py/-/raw/master/js/模板.js'
+// var rule = Object.assign(模板.首图2,{
+// host: 'https://www.zbkk.net',
+// });
+import './lib/util.js';
+import cheerio from './lib/cheerio.min.js';
+import { muban } from './dr/模板.js';
+
+const key = 'drpy_zbk';
+
+function init_test() {
+    console.log("init_test_start");
+    // clearItem(RULE_CK);
+    // console.log(JSON.stringify(rule));
+    // console.log(request('https://www.baidu.com',{withHeaders:true}));
+    // console.log(request('https://www.baidu.com/favicon.ico',{toBase64:true}));
+    // require('http://192.168.10.99:5705/txt/pluto/drT.js');
+    // console.log(typeof(drT));
+    // console.log(drT.renderText('{{fl.cate}},hi, {{fl}}哈哈.{{fl}}',{sort: 1,cate:'movie'},'fl'));
+    console.log(cheerio.jinja2('{{fl.地区 or 2}}-{{fl.排序 or 2}}-{{fl.剧情}}-{{fl.语言 or "11"}}-{{fl.字母}}---fypage---{{fl.年份}}.html',{fl:{sort: 1,地区:'movie2'}}));
+    console.log("init_test_end");
+}
+
+let rule = {
     title:'360影视',
     host:'https://www.360kan.com',
     homeUrl:'https://api.web.360kan.com/v1/rank?cat=2&size=9',
